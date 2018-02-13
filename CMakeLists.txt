@@ -35,7 +35,7 @@ set_target_properties(pomodorosolved PROPERTIES CXX_STANDARD 14
 add_executable(pomodorosimple DO_NOT_READ/main.cpp
                               DO_NOT_READ/pomodoro.cpp
                               DO_NOT_READ/Simple/ThreadedPomodoro.cpp
-                              SimplePomodoro.cpp)
+                              SimplePomodoro.cpp timeformatter.cpp timeformatter.h)
 target_link_libraries(pomodorosimple Qt5::Core
                                      Qt5::Widgets
                                      Threads::Threads)
@@ -49,7 +49,7 @@ set_target_properties(pomodorosimple PROPERTIES CXX_STANDARD 14
                                                 
 add_executable(pomodorothreaded DO_NOT_READ/main.cpp
                                 DO_NOT_READ/pomodoro.cpp
-                                ThreadedPomodoro.cpp)
+                                ThreadedPomodoro.cpp timeformatter.cpp timeformatter.h)
 target_link_libraries(pomodorothreaded Qt5::Core
                                        Qt5::Widgets
                                        Threads::Threads)
