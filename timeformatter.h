@@ -13,13 +13,7 @@ using CppLondonUni::ITimeFormatter;
 namespace CppLondonUni {
     class timeformatter : public ITimeFormatter {
     public:
-        virtual std::string FormatTime(uint32_t mins, uint32_t secs) const {
-            std::ostringstream o;
-            o << std::setfill('0') << std::setw(2) << mins
-              << ":"
-              << std::setfill('0') << std::setw(2) << secs;
-            return o.str();
-        };
+        virtual std::string FormatTime(uint32_t mins, uint32_t secs) const;
     };
 }
 

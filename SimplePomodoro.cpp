@@ -11,7 +11,7 @@ namespace CppLondonUni {
     };
 
     void SimplePomodoro::Decrement() {
-        currentTime--;
+        --currentTime;
     };
 
     void SimplePomodoro::Cancel() {
