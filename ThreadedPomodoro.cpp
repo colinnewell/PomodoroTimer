@@ -7,9 +7,6 @@ using namespace std::chrono_literals;
 static std::chrono::high_resolution_clock clk;
 
 void ThreadedPomodoro::InvokeProcessLoop(uint32_t time, std::function<bool(uint32_t)>&& callback) {
-    // std::thread
-    // std::chrono
-    // std::function
     currentTime = time;
     if(runner.joinable()) {
         done = true;
