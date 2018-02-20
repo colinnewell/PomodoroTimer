@@ -16,9 +16,10 @@ void ThreadedPomodoro::InvokeProcessLoop(uint32_t time, std::function<bool(uint3
     runner = std::thread{[&, callback = std::move(callback)]() mutable {
         while(currentTime > 0 && !done) {
             auto start = clk.now();
-            done = callback(currentTime--);
+            done = callback(currentTime);
             auto elapsed = clk.now()-start;
             std::this_thread::sleep_for(1s - elapsed);
+            --currentTime;
         }
         // also handy for when we reset
         callback(0); // of by 1 ;)
