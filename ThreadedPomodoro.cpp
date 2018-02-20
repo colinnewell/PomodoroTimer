@@ -20,8 +20,7 @@ void ThreadedPomodoro::InvokeProcessLoop(uint32_t time, std::function<bool(uint3
         while(currentTime > 0 && !done) {
             auto start = clk.now();
             done = callback(currentTime--);
-            auto end = clk.now();
-            auto elapsed = end-start;
+            auto elapsed = clk.now()-start;
             std::this_thread::sleep_for(1s - elapsed);
         }
         // also handy for when we reset
