@@ -19,8 +19,8 @@ namespace CppLondonUni {
     };
 
     std::string SimplePomodoro::FormatCurrentTime() const {
-        int minutes = currentTime / 60;
-        int seconds = currentTime % 60;
+        auto minutes = currentTime / 60;
+        auto seconds = currentTime % 60;
         return t.FormatTime(minutes, seconds);
     };
 }
