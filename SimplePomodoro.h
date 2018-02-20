@@ -8,39 +8,27 @@ namespace CppLondonUni {
     class SimplePomodoro : public ISimpleCountdown {
     public:
 
-        SimplePomodoro(const uint32_t startTime) : currentTime{startTime}, ISimpleCountdown{startTime} {}
+        //SimplePomodoro(const uint32_t startTime) : currentTime{startTime}, ISimpleCountdown{startTime} {}
+        using ISimpleCountdown::ISimpleCountdown; // reuse base classes constructor
 
-        virtual bool IsComplete() const {
-            return this->currentTime == 0;
-        };
+        virtual bool IsComplete() const;
 
         // CurrentCount should return the number of seconds remaining.
-        virtual uint32_t CurrentCount() const {
-            return this->currentTime;
-        };
+        virtual uint32_t CurrentCount() const;
 
         // Decrement should decrement the seconds remaining by 1.
-        virtual void Decrement() {
-            this->currentTime--;
-        };
+        virtual void Decrement();
 
         // If Cancel is called, all subsequent calls to IsComplete should
         // return true.
-        virtual void Cancel() {
-            this->currentTime = 0;
-        };
+        virtual void Cancel();
 
         // FormatCurrentTime should return a string of the current time remaining
         // in the same format as what FormatTime() returns.
-        virtual std::string FormatCurrentTime() const {
-            timeformatter t;
-            int minutes = this->currentTime / 60;
-            int seconds = this->currentTime % 60;
-            return t.FormatTime(minutes, seconds);
-        };
+        virtual std::string FormatCurrentTime() const;
 
     private:
-        uint32_t currentTime;
+        uint32_t currentTime{startTime};
 
     };
 }
